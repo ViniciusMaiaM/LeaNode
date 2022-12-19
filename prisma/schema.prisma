@@ -11,13 +11,21 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-  email String @unique
+  id String @id @default(uuid()) // Sempre que um novo user for criado o "@default" gera um novo id
+  email String @unique // Declarando que o email é unico pra cada usuário 
   name String
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
+  created_at DateTime @default(now()) //Pega a data atual da criação do usuário
+  updated_at DateTime @updatedAt //Pega a data de quando o usuário for alterado
 
-  @@map("users")//nomeando como a tabale vai ser escrita no banco
+  @@map("users") // Nomeando como a tabela vai ser escrita no banco
 }
 
 
+model Movie {
+  id String @id @default(uuid())
+  title String @unique
+  duration Int
+  release_date DateTime
+
+  @@map("movies")
+}
