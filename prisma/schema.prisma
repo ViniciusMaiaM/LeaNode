@@ -33,13 +33,13 @@ model Movie {
 }
 
 model MovieRent {
-  user User @relation("user", fields: [user_id], references: [id]) // Criação de um campo de tipo User
+  user User @relation("user", fields: [userId], references: [id]) // Criação de um campo de tipo User
   // Com o fields identificamos qual campo de models vai se relacionar com o User e o references indica 
   // qual campo de user possui o campo de relação
-  user_id String
-  movie Movie @relation("movie", fields: [movie_id], references: [id])
-  movie_id String
+  userId String
+  movie Movie @relation("movie", fields: [movieId], references: [id])
+  movieId String
 
-  @@id([user_id, movie_id]) //Dessa maneira faz uma junção entre ids para criar o id de MovieRent
+  @@id([userId, movieId]) //Dessa maneira faz uma junção entre ids para criar o id de MovieRent
   @@map("movie_rent")
 }
