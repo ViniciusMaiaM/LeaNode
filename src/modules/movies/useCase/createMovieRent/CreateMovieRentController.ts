@@ -5,12 +5,9 @@ export class CreateMovieRentController{
     async handle(req: Request, res: Response){
         const {movieId, userId} = req.body;
 
-        const createMovieRenteUseCase = new CreateMovieRentUseCase();
+        const createMovieRentUseCase = new CreateMovieRentUseCase();
 
-        const result = await createMovieRenteUseCase.execute({
-            movieId,
-            userId
-        });
+        await createMovieRentUseCase.execute({ movieId, userId });
 
         return res.status(201).send();
     }

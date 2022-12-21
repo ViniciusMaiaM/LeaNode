@@ -9,13 +9,13 @@ export class CreateMovieUseCase {
         duration,
         release_date,
     }: CreateMovieDTO): Promise<Movie> {
-        const MovieAlredyExists = await prisma.movie.findUnique({
+        const movieAlredyExists = await prisma.movie.findUnique({
             where:{
                 title,
             },
         });
 
-        if(MovieAlredyExists){
+        if(movieAlredyExists){
             throw new AppError("Movie already exists!");
         }
 
