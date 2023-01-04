@@ -1,7 +1,7 @@
 import { User } from "@prisma/client";
-import { CreateUserDto } from "../dto/CreateUserDto";
-import { prisma } from "../../../prisma/prisma";
-import { AppError } from "../../../erros/AppError"
+import { CreateUserDto } from "../../dto/CreateUserDto";
+import { prisma } from "../../../../prisma/prisma";
+import { AppError } from "../../../../erros/AppError"
 
 export class CreateUserCaseUser{
     async execute({name, email}:CreateUserDto): Promise<User> { // Promise representa o eventual sucesso ou falha de uma operação assincrona
